@@ -3,7 +3,7 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "treeforall-local-development-key-change-before-deployment"
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", ".vercel.app"]
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
