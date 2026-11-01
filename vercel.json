@@ -1,0 +1,10 @@
+{
+  "builds": [
+    {
+      "src": "config/wsgi.py",
+      "use": "@vercel/python",
+      "config": { "includeFiles": ["frontend/**", "tree_engine.py", "treeapi/**"] }
+    }
+  ],
+  "routes": [{ "src": "/(.*)", "dest": "config/wsgi.py" }]
+}
