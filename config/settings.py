@@ -7,6 +7,7 @@ ALLOWED_HOSTS = ["127.0.0.1", "localhost", "[::1]", ".vercel.app"]
 
 INSTALLED_APPS = [
     "django.contrib.contenttypes",
+    "django.contrib.auth",
     "django.contrib.staticfiles",
     "rest_framework",
     "treeapi",
