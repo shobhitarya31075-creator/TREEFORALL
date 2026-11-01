@@ -8,7 +8,7 @@ from rest_framework.response import Response
 
 from tree_engine import RedBlackTree
 
-FRONTEND = Path(__file__).resolve().parent.parent.parent / "frontend"
+FRONTEND = Path(__file__).resolve().parent.parent / "frontend"
 tree = RedBlackTree()
 
 def index(request):
