@@ -1,0 +1,1 @@
+TreeForAll Phase 6 backend uses Django JSON API views. See the project README.md for setup and endpoints.\n

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>TreeForAll — Learn. Visualize. Understand.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="js/visualization.js"></script><script defer src="js/phase5.js"></script><script defer src="js/speech.js"></script><script defer src="js/accessibility.js"></script><script defer src="js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header class="topbar">
+ <a class="brand" href="#"><span class="logo">T</span>Tree<span class="purple">ForAll</span></a>
+ <nav aria-label="Main navigation"><a class="active" href="#visualizer">Visualizer</a><a href="#operations">Operations</a><a href="#learn">Learn</a></nav>
+ <div class="top-actions"><span class="preview"><i></i> Connecting…</span><button id="contrast-toggle" class="icon-btn" aria-pressed="false" aria-label="Toggle high contrast">◐</button></div>
+</header>
+<main id="main" class="shell">
+<section class="hero"><div><p class="eyebrow">ACCESSIBLE DATA STRUCTURE LEARNING</p><h1>Understand trees.<br><span>One step at a time.</span></h1><p class="hero-copy">Explore Red-Black Trees through clear visuals and accessible explanations. Built to make data structures easier to understand for everyone.</p></div><div class="hero-tag">✦ &nbsp; Learn · Visualize · Understand</div></section>
+<section id="visualizer">
+ <div class="section-head"><div><p class="eyebrow">INTERACTIVE WORKSPACE</p><h2>Tree visualizer</h2></div><span class="tag">LIVE TREE</span></div>
+ <div class="workspace">
+  <section class="panel tree-panel">
+   <div class="panel-head"><div><h3>Red-Black Tree</h3><p class="muted">Connecting to the Django REST API…</p></div><div class="legend"><span><i class="red-dot"></i> Red</span><span><i class="black-dot"></i> Black</span></div></div>
+   <div class="tree-stage"><svg id="tree-svg" viewBox="0 0 600 300" role="img" aria-labelledby="tree-title tree-desc">
+    <title id="tree-title">Sample Red-Black Tree</title><desc id="tree-desc">Black root node 20 with red left child 10 and red right child 30.</desc>
+    <g stroke="#66708a" stroke-width="3" fill="none"><path d="M300 65 L175 185"/><path d="M300 65 L425 185"/></g>
+    <circle cx="300" cy="55" r="29" fill="#20283b" stroke="#9aa8c2" stroke-width="2"/><circle cx="175" cy="185" r="29" fill="#e34e68" stroke="#ff91a4" stroke-width="2"/><circle cx="425" cy="185" r="29" fill="#e34e68" stroke="#ff91a4" stroke-width="2"/>
+    <g fill="white" font-size="17" font-weight="700" text-anchor="middle"><text x="300" y="61">20</text><text x="175" y="191">10</text><text x="425" y="191">30</text></g>
+    <g fill="#8997b2" font-size="11" text-anchor="middle"><text x="175" y="238">NIL</text><text x="425" y="238">NIL</text></g>
+   </svg></div>
+   <div class="tree-foot"><span>● Root: —</span><span>0 nodes · Loading</span></div>
+   <p class="sr-only" id="tree-alt">Tree description: root 20 black; left child 10 red; right child 30 red.</p>
+  </section>
+  <aside class="side-stack">
+   <section class="panel stats"><div class="panel-head"><h3>Tree overview</h3><span class="purple">▦</span></div><div class="stat-grid">
+    <div class="stat"><small>Root node</small><strong>—</strong><em>Loading</em></div><div class="stat"><small>Total nodes</small><strong>00</strong><em>Live values</em></div><div class="stat"><small>Tree height</small><strong>0</strong><em>Levels</em></div><div class="stat"><small>Validation</small><strong class="pending">Loading</strong><em>Checking engine</em></div>
+   </div></section>
+   <section class="panel learn" id="learn"><div class="panel-head"><h3>Quick concept</h3><span class="purple">✦</span></div><h4>Why use Red-Black Trees?</h4><p class="muted">They keep the tree approximately balanced, so searching, inserting and deleting remain efficient.</p><div class="complexity"><span>Search</span><code>O(log n)</code></div><div class="complexity"><span>Insertion</span><code>O(log n)</code></div><div class="complexity"><span>Deletion</span><code>O(log n)</code></div></section>
+  </aside>
+ </div>
+</section>
+<section class="lower">
+ <section class="panel operations" id="operations"><div class="panel-head"><div><p class="eyebrow">TRY THE CONTROLS</p><h2>Tree operations</h2></div><span class="purple">⌘</span></div>
+  <p class="muted small">Operations run against the live Python Red-Black Tree engine. Insert a whole number, then choose an operation.</p>
+  <label for="node-value">Enter a node value</label><div class="input-row"><input id="node-value" type="number" step="1" placeholder="e.g. 25" inputmode="numeric"><button id="insert-btn" class="primary">＋ Insert</button></div>
+  <p class="help">Enter a whole number, then choose an operation.</p>
+  <div class="btn-grid"><button id="delete-btn" class="secondary">− Delete</button><button id="search-btn" class="secondary">⌕ Search</button><button id="reset-btn" class="outline">↺ Reset tree</button></div>
+  <div id="operation-message" class="message" role="status" aria-live="polite">Welcome! This is a sample tree preview.</div>
+ </section>
+ <section class="panel traversals"><div class="panel-head"><div><p class="eyebrow">TREE INFORMATION</p><h2>Traversals</h2></div><span class="purple">≋</span></div>
+  <div class="traversal"><span>Inorder</span><code>10 → 20 → 30</code></div><div class="traversal"><span>Preorder</span><code>20 → 10 → 30</code></div><div class="traversal"><span>Postorder</span><code>10 → 30 → 20</code></div><div class="traversal"><span>Level order</span><code>20 → 10 → 30</code></div><p class="muted small">Traversal values are returned by the live backend.</p>
+ </section>
+</section>
+<section class="panel accessibility"><div class="panel-head"><div><p class="eyebrow">DESIGNED FOR EVERYONE</p><h2>Accessibility tools</h2></div><span class="purple">◎</span></div>
+ <div class="features"><article><b>⌨ &nbsp; Keyboard friendly</b><p>Navigate controls using Tab, Shift+Tab and Enter.</p></article><article><b>◖ &nbsp; Speech explanation</b><p>Listen to a description using browser speech support.</p></article><article><b>▤ &nbsp; Text alternative</b><p>A screen-reader-friendly tree description is available.</p></article></div>
+ <div class="speech-row"><button id="speak-btn" class="secondary">▶ Read tree description</button><button id="stop-btn" class="outline">■ Stop speech</button><span id="speech-status" class="muted small" role="status" aria-live="polite">Speech ready when supported by your browser.</span></div>
+</section>
+
+
+<section class="phase5 panel" id="phase5-learning">
+ <div class="section-head"><div><p class="eyebrow">PHASE 5 · LEARN BY WATCHING</p><h2>Operation step-through</h2></div><span class="tag">PLAYBACK</span></div>
+ <p class="muted small">After each insert or delete, replay the engine’s actual intermediate tree states, including rotations and recoloring. Search results are explained separately.</p>
+ <div class="phase5-stage" aria-live="polite">
+  <div class="phase5-count" id="phase5-step-count">Waiting for an operation</div>
+  <div class="phase5-progress-track"><div id="phase5-progress"></div></div>
+  <h3 id="phase5-step-title">Ready to explore</h3>
+  <p id="phase5-step-detail" class="muted">Insert or delete a value above. The operation timeline will appear here.</p>
+  <div class="phase5-controls">
+   <button id="phase5-prev" class="outline" disabled>← Previous</button>
+   <button id="phase5-play" class="primary">▶ Play</button>
+   <button id="phase5-next" class="secondary" disabled>Next →</button>
+   <button id="phase5-restart" class="outline">↺ Restart</button>
+   <label class="phase5-speed-label" for="phase5-speed">Speed</label><select id="phase5-speed" aria-label="Animation speed"><option value="2600">Slow</option><option value="1800" selected>Normal</option><option value="900">Fast</option></select>
+  </div>
+  <span id="phase5-live" class="sr-only" role="status" aria-live="polite"></span>
+ </div>
+ <div class="phase5-history-wrap"><h3>Recent operation history</h3><ol id="phase5-history" class="phase5-history"><li>No operations yet.</li></ol></div>
+</section>
+
+<!-- Added Phase 3 learning videos -->
+<section class="panel video-library" id="learning-videos">
+ <div class="section-head"><div><p class="eyebrow">WATCH AND LEARN</p><h2>Learn: Red-Black Trees</h2></div><span class="tag">VIDEO LESSONS</span></div>
+ <p class="muted video-intro">Learn the core idea first, then watch how insertion works. Select a lesson to open it on YouTube.</p>
+ <div class="video-grid">
+  <article class="video-card">
+   <a class="video-thumb" href="https://youtu.be/hq_3iqS0Hq0?si=YPJtMYbmb_9IC-7B" target="_blank" rel="noopener noreferrer" aria-label="Watch Introduction to Red-Black Trees on YouTube">
+    <img src="https://img.youtube.com/vi/hq_3iqS0Hq0/hqdefault.jpg" alt="Video thumbnail for Introduction to Red-Black Trees" loading="lazy">
+    <span class="play-icon" aria-hidden="true">▶</span>
+   </a>
+   <div class="video-copy"><span class="lesson-number">LESSON 01</span><h3>Introduction to Red-Black Trees</h3><p class="muted">Understand the purpose of Red-Black Trees and the basic coloring rules.</p><a class="video-link" href="https://youtu.be/hq_3iqS0Hq0?si=YPJtMYbmb_9IC-7B" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></div>
+  </article>
+  <article class="video-card">
+   <a class="video-thumb" href="https://youtu.be/tvY0Xv5dVuc?si=gJjZyfIC9dRJ4AS7" target="_blank" rel="noopener noreferrer" aria-label="Watch Insertion in Red-Black Trees on YouTube">
+    <img src="https://img.youtube.com/vi/tvY0Xv5dVuc/hqdefault.jpg" alt="Video thumbnail for Insertion in Red-Black Trees" loading="lazy">
+    <span class="play-icon" aria-hidden="true">▶</span>
+   </a>
+   <div class="video-copy"><span class="lesson-number">LESSON 02</span><h3>Insertion in Red-Black Trees</h3><p class="muted">Follow the insertion process and learn why recoloring and rotations may be needed.</p><a class="video-link" href="https://youtu.be/tvY0Xv5dVuc?si=gJjZyfIC9dRJ4AS7" target="_blank" rel="noopener noreferrer">Watch on YouTube ↗</a></div>
+  </article>
+ </div>
+</section>
+<footer><a class="brand" href="#"><span class="logo">T</span>Tree<span class="purple">ForAll</span></a><span>Making data structures easier to understand.</span><span>Phase 6 · Django REST API integration</span></footer>
+</main>
+</body></html>
